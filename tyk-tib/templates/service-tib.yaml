@@ -1,0 +1,21 @@
+{{- if .Values.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: tib-svc-{{ include "tyk-pro.fullname" . }}
+  labels:
+    app: tib-svc-{{ include "tyk-pro.fullname" . }}
+    chart: {{ include "tyk-pro.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  ports:
+  - port: {{ .Values.service.port }}
+    targetPort: {{ .Values.containerPort }}
+    protocol: TCP
+    name: http
+  type: {{ .Values.service.type }}
+  selector:
+    app: tib-{{ include "tyk-pro.fullname" . }}
+    release: {{ .Release.Name }}
+{{- end }}

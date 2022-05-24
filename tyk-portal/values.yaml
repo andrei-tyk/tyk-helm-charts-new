@@ -1,0 +1,21 @@
+
+# Portal will only bootstrap if both the Master and Dashboard bootstrap
+# options are set to true. Only set this to false if you're not planning
+# on using developer portal
+bootstrap: true
+path: /
+# Creates an ingress object in k8s. Will require an ingress-controller and
+# annotation to that ingress controller.
+ingress:
+  enabled: false
+  # specify your ingress controller class name below
+  className: ""
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []

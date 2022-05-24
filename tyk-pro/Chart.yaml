@@ -1,0 +1,41 @@
+apiVersion: v2
+name: tyk-pro
+description: A helm chart for the tyk-pro app
+
+type: application
+
+version: 0.1.0
+
+dependencies:
+  - name: simple-redis
+    repository: https://helm.tyk.io/public/helm/charts/
+    version: 0.1.1
+    alias: redis
+  - name: simple-mongodb
+    version: 0.1.1
+    repository: https://helm.tyk.io/public/helm/charts/
+    alias: mongo
+  - name: tyk-gateway
+    version: 0.1.0
+    repository: file://../tyk-gateway
+    alias: gateway
+  - name: tyk-mdcb
+    version: 0.1.0
+    repository: file://../tyk-mdcb
+    alias: mdcb
+  - name: tyk-portal
+    version: 0.1.0
+    repository: file://../tyk-portal
+    alias: portal
+  - name: tyk-pump
+    version: 0.1.0
+    repository: file://../tyk-pump
+    alias: pump
+  - name: tyk-tib
+    version: 0.1.0
+    repository: file://../tyk-tib
+    alias: tib
+  - name: tyk-dashboard
+    version: 0.1.0
+    repository: file://../tyk-dashboard
+    alias: dash

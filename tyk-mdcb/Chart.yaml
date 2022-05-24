@@ -1,0 +1,9 @@
+apiVersion: v2
+name: tyk-mdcb
+description: A Helm chart for tyk-mdcb
+
+type: application
+
+version: 0.1.0
+
+appVersion: "v4.0.1"
